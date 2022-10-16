@@ -26,24 +26,32 @@ public class Mundo {
     }
 
     // col , row : representing the cell you want to find neighbors to
-    public void ContarVecinos(int x, int y) {
-
+    public int ContarVecinos(int x, int y) {
+        
+        int numVecinos = 0;
         // find all serouding cell by adding +/- 1 to col and row
         for (int colNum = y - 1; colNum <= (y + 1); colNum += 1) {
-
+            // numVecinos = 0;
             for (int rowNum = x - 1; rowNum <= (x + 1); rowNum += 1) {
-
+                
                 // if not the center cell
                 if (!((colNum == y) && (rowNum == x))) {
 
                     // make sure it is within grid
                     if (withinGrid(colNum, rowNum)) {
                         int vida = tablero[rowNum][colNum].getEstado();
-                        System.out.println("Neighbor of " + y + " " + x + " - " + colNum + " " + rowNum + " Value: " + vida);
+                        System.out.println("Vecino de " + y + " " + x + " - " + colNum + " " + rowNum + " Value: " + vida);
+                        if (vida == 1) {
+                            numVecinos += vida;
+                            // return numVecinos;
+                            // return vida;
+                        }
                     }
                 }
             }
         }
+        return numVecinos;
+        
     }
 
     // define if cell represented by colNum, rowNum is inside grid
