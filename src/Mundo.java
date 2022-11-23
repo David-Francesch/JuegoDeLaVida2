@@ -1,7 +1,7 @@
 import java.lang.reflect.Array;
 
 public class Mundo {
-    Vida tablero[][] = new Vida[8][8];
+    Vida tablero[][] = new Vida[2][2];
     Vida copiatemp[][];
 
     public Mundo() {
@@ -39,7 +39,8 @@ public class Mundo {
 
                     // make sure it is within grid
                     if (withinGrid(colNum, rowNum)) {
-                        int vida = tablero[rowNum][colNum].getEstado();
+                        int vida = tablero[x][y].getEstado();
+                        System.out.println(vida);
                         System.out.println("Vecino de " + y + " " + x + " - " + colNum + " " + rowNum + " Value: " + vida);
                         if (vida == 1) {
                             numVecinos += vida;
